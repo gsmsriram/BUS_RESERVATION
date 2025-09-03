@@ -1,0 +1,126 @@
+/* --- Google Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- CSS Variables for Theming --- */
+:root {
+  --brand-color: #007bff;
+  --brand-hover: #0056b3;
+  --bg-light: #f8f9fa;
+  --bg-white: #ffffff;
+  --text-dark: #212529;
+  --text-muted: #6c757d;
+  --border-color: #dee2e6;
+  --success-color: #198754;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --border-radius: 8px;
+}
+
+/* --- Global Styles --- */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* --- Custom Card with Elevation --- */
+.card-elev {
+  background-color: var(--bg-white);
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card-elev:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Custom Brand Button --- */
+.btn-brand {
+  background-color: var(--brand-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-brand:hover {
+  background-color: var(--brand-hover);
+  color: white;
+}
+
+/* --- Form Input Styling --- */
+.form-control:focus, .form-select:focus {
+  border-color: var(--brand-color);
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+/* --- SeatGrid Component Styling --- */
+.seat {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.seat.available {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  cursor: pointer;
+}
+
+.seat.available:hover {
+  background-color: #d6dde3;
+  transform: scale(1.05);
+}
+
+.seat.selected {
+  background-color: var(--brand-color);
+  color: white;
+  border: 1px solid var(--brand-hover);
+}
+
+.seat.booked {
+  background-color: #6c757d;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* --- Tabs Navigation for Bookings Page --- */
+.tabs-nav {
+  display: flex;
+  gap: 10px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+}
+.tabs-nav .btn {
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-radius: 6px 6px 0 0;
+  position: relative;
+}
+.tabs-nav .btn.active {
+  color: var(--brand-color);
+}
+.tabs-nav .btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--brand-color);
+}
